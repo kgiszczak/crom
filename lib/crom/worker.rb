@@ -1,6 +1,8 @@
+require 'active_support/core_ext/class/attribute_accessors'
+
 module Crom
   class Worker
-    attr_accessor :logger
+    cattr_accessor :logger
 
     def initialize
       @scheduler = Rufus::Scheduler.start_new

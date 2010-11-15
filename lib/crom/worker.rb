@@ -1,8 +1,10 @@
-require 'active_support/core_ext/class/attribute_accessors'
-
 module Crom
   class Worker
-    cattr_accessor :logger
+    @@logger = nil unless defined? @@logger
+
+    def self.logger=(logger)
+      @@logger = logger
+    end
 
     def initialize
       @scheduler = Rufus::Scheduler.start_new
@@ -40,7 +42,7 @@ module Crom
       end
 
       def log(msg)
-        logger.info msg if logger
+        @@logger.info msg if @@logger
       end
   end # class Worker
 end # module Crom

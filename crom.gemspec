@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project         = "crom"
 
   s.add_runtime_dependency "rufus-scheduler", "~> 2.0.6"
+  s.add_runtime_dependency "daemons"
   s.add_development_dependency "bundler", ">= 1.0.0"
 
   s.files        = `git ls-files`.split("\n")

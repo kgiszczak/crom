@@ -6,7 +6,7 @@ module Crom
 
     def initialize
       @scheduler = Rufus::Scheduler.start_new
-      instance_eval(&Crom.tasks)
+      instance_eval(&Crom.schedule)
 
       trap("TERM") { stop }
       trap("INT")  { stop }

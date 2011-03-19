@@ -32,8 +32,11 @@ module Crom
               log "\#{Time.now.strftime('%F %T')} | Processing task: #{method} \#{t}"
               begin
                 block.call
-              rescue
-                log $!
+              rescue => e
+                log '=' * 80
+                log e.message
+                log e.backtrace.join('\n')
+                log '=' * 80
               end
             end
             @scheduler.#{method}(t, s, opts, &decorated_block)

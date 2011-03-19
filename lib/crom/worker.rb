@@ -25,7 +25,7 @@ module Crom
     end
 
     private
-      [ :schedule_in, :at, :every, :cron ].each do |method|
+      [ :schedule_in, :schedule_at, :every, :cron ].each do |method|
         class_eval <<-ENDEVAL
           def #{method}(t, s = nil, opts = {}, &block)
             decorated_block = Proc.new do

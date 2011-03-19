@@ -12,7 +12,7 @@ Crom.schedule do
     # Some task
   # end
 
-  # at 'Thu Mar 26 07:31:43 +0900 2020' do
+  # schedule_at 'Thu Mar 26 07:31:43 +0900 2020' do
     # Some task
   # end
 

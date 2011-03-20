@@ -31,7 +31,7 @@ module Crom
             decorated_block = Proc.new do
               log "\#{Time.now.strftime('%F %T')} | Processing task: #{method} \#{t}"
               begin
-                block.call
+                #{defined?(ActiveRecord) ? 'ActiveRecord::Base.connection_pool.with_connection(&block)' : 'block.call'}
               rescue => e
                 log '=' * 80
                 log e.message

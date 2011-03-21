@@ -1,0 +1,48 @@
+== Crom
+
+Crom is very simple scheduler for Rails.
+
+== Usage
+
+Add this line to your Gemfile:
+
+  gem 'crom', :git => 'http://github.com/kgiszczak/crom'
+
+and run:
+
+  bundle install
+
+You can run crom generator now:
+
+  rails g crom:install
+
+This command will create config/schedule.rb file where you define your scheduled jobs.
+Sample file looks like this:
+
+  Crom.schedule do
+
+    # every '1s' do
+      # Some task
+    # end
+
+    # cron '* * * * *' do
+      # Some task
+    # end
+
+    # schedule_in '20m' do
+      # Some task
+    # end
+
+    # schedule_at 'Thu Mar 26 07:31:43 +0900 2020' do
+      # Some task
+    # end
+
+  end
+
+You can run crom with rake command:
+
+  rake crom:start
+
+This is helpful for debuging, or you can run crom as a daemon with:
+
+  ./scrip/crom start

@@ -9,4 +9,9 @@ module Crom
     @tasks = block if block
     @tasks || Proc.new {}
   end
+
+  def self.handle_errors(&block)
+    @error_handler = block if block
+    @error_handler
+  end
 end

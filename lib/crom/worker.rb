@@ -33,6 +33,8 @@ module Crom
               begin
                 #{defined?(ActiveRecord) ? 'ActiveRecord::Base.connection_pool.with_connection(&block)' : 'block.call'}
               rescue => e
+                Crom.handle_errors.call(e) if Crom.handle_errors
+
                 log '=' * 80
                 log e.message
                 log e.backtrace.join('\n')

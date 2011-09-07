@@ -47,6 +47,21 @@ This is helpful for debuging, or you can run crom as a daemon with:
 
   ./scrip/crom start
 
+== Error Handler
+
+You can define error handler like this:
+
+  Crom.handle_errors do |err|
+    Mail.deliver do
+      from    'error@example.com'
+      to      'admin@example.com'
+      subject err.message
+      body    err.backtrace.join("\n")
+    end
+  end
+
+This handler will be called every time error occurs.
+
 == Using with Heroku
 
 Only possible on cedar stack!

@@ -16,7 +16,7 @@ You can run crom generator now:
 
   rails g crom:install
 
-This command will create config/schedule.rb file where you define your scheduled jobs.
+This command will create config/schedule.rb file where you can define your scheduled jobs.
 Sample file looks like this:
 
   Crom.schedule do
@@ -46,6 +46,10 @@ You can run crom with rake command:
 This is helpful for debuging, or you can run crom as a daemon with:
 
   ./scrip/crom start
+
+By default daemon is run with production environment. You can change this by passing -e flag:
+
+  ./scrip/crom start -e development
 
 == Error Handler
 

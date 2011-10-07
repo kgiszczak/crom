@@ -6,8 +6,9 @@ require File.dirname(__FILE__) + '/crom/railtie' if defined?(Rails)
 
 module Crom
   def self.schedule(&block)
-    @tasks = block if block
-    @tasks || Proc.new {}
+    @tasks ||= []
+    @tasks << block if block
+    @tasks
   end
 
   def self.handle_errors(&block)

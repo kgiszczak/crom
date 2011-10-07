@@ -8,7 +8,9 @@ module Crom
 
     def initialize
       @scheduler = Rufus::Scheduler.start_new
-      instance_eval(&Crom.schedule)
+      Crom.schedule.each do |blk|
+        instance_eval(&blk)
+      end
 
       trap("TERM") { stop }
       trap("INT")  { stop }
